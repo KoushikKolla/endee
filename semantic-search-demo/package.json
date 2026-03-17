@@ -1,0 +1,17 @@
+{
+  "name": "semantic-search-demo",
+  "version": "1.0.0",
+  "description": "A semantic search application using Endee vector database and Xenova/transformers",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "@xenova/transformers": "^2.16.0",
+    "endee": "latest",
+    "cors": "^2.8.5"
+  }
+}
