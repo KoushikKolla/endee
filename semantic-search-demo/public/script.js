@@ -2,7 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
     const loadingState = document.getElementById('loadingState');
+    const loadingSpan = document.getElementById('loadingSpan');
     const resultsContainer = document.getElementById('resultsContainer');
+
+    // Add Data elements
+    const addTitle = document.getElementById('addTitle');
+    const addDesc = document.getElementById('addDesc');
+    const addButton = document.getElementById('addButton');
+    const addSuccessMsg = document.getElementById('addSuccessMsg');
 
     searchButton.addEventListener('click', performSearch);
     searchInput.addEventListener('keypress', (e) => {
@@ -11,6 +18,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    addButton.addEventListener('click', performDataAdd);
+
+    async function performDataAdd() {
+        const title = addTitle.value.trim();
+        const description = addDesc.value.trim();
+
+        if (!title || !description) return;
+
+        addButton.disabled = true;
+        addTitle.disabled = true;
+        addDesc.disabled = true;
+
+        loadingSpan.innerText = `Calculating embeddings for "${title}"...`;
+        loadingState.style.display = 'flex';
+        addSuccessMsg.style.display = 'none';
+
+        try {
+            const response = await fetch('/api/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, description })
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || 'Failed to add data');
+            }
+
+            // Success UI
+            addSuccessMsg.style.display = 'block';
+            addTitle.value = '';
+            addDesc.value = '';
+            
+            // Auto-hide success message
+            setTimeout(() => {
+                addSuccessMsg.style.display = 'none';
+            }, 5000);
+
+        } catch (err) {
+            alert(err.message);
+        } finally {
+            addButton.disabled = false;
+            addTitle.disabled = false;
+            addDesc.disabled = false;
+            loadingState.style.display = 'none';
+        }
+    }
+
     async function performSearch() {
         const query = searchInput.value.trim();
         if (!query) return;
@@ -18,8 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // UI state update
         searchInput.disabled = true;
         searchButton.disabled = true;
+        loadingSpan.innerText = "Embedding your query & searching Endee DB...";
         loadingState.style.display = 'flex';
         resultsContainer.innerHTML = '';
+        addSuccessMsg.style.display = 'none';
 
         try {
             const response = await fetch('/api/search', {

@@ -175,6 +175,58 @@ button:active {
   margin-top: 2rem;
 }
 
+.add-data-section {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+.add-data-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.add-container {
+  display: flex;
+  gap: 12px;
+}
+
+.add-container input {
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+}
+
+#addTitle {
+  flex: 0.5;
+}
+
+.btn.secondary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.btn.secondary:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.success-msg {
+  color: #10b981;
+  font-size: 0.9rem;
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
 .spinner {
   width: 32px;
   height: 32px;

@@ -22,7 +22,7 @@ const DIMENSION = 384;
 let index = null;
 let embedder = null;
 
-// Initial movie dataset
+// Expanded movie dataset to show the true power of semantic search
 const MOVIES = [
   { id: '1', title: 'The Matrix', description: 'A computer hacker learns from mysterious rebels about the true nature of his reality.' },
   { id: '2', title: 'Inception', description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea.' },
@@ -33,7 +33,27 @@ const MOVIES = [
   { id: '7', title: 'Spirited Away', description: 'During her family\'s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.' },
   { id: '8', title: 'The Lord of the Rings', description: 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.' },
   { id: '9', title: 'Star Wars: A New Hope', description: 'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire\'s world-destroying battle station.' },
-  { id: '10', title: 'Jurassic Park', description: 'A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park\'s cloned dinosaurs to run loose.' }
+  { id: '10', title: 'Jurassic Park', description: 'A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park\'s cloned dinosaurs to run loose.' },
+  { id: '11', title: 'The Truman Show', description: 'An insurance salesman discovers his whole life is actually a reality TV show.' },
+  { id: '12', title: 'Good Will Hunting', description: 'Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.' },
+  { id: '13', title: 'Gladiator', description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.' },
+  { id: '14', title: 'The Silence of the Lambs', description: 'A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.' },
+  { id: '15', title: 'Wall-E', description: 'In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.' },
+  { id: '16', title: 'The Lion King', description: 'Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.' },
+  { id: '17', title: 'Back to the Future', description: 'A teenager is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend.' },
+  { id: '18', title: 'The Terminator', description: 'A human soldier is sent from 2029 to 1984 to stop an almost indestructible cyborg killing machine, sent from the same year.' },
+  { id: '19', title: 'Alien', description: 'The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.' },
+  { id: '20', title: 'Indiana Jones and the Raiders of the Lost Ark', description: 'In 1936, archaeologist and adventurer Indiana Jones is hired by the U.S. government to find the Ark of the Covenant before the Nazis.' },
+  { id: '21', title: 'The Social Network', description: 'As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea.' },
+  { id: '22', title: 'Whiplash', description: 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.' },
+  { id: '23', title: 'Blade Runner 2049', description: 'Young Blade Runner K\'s discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who\'s been missing for thirty years.' },
+  { id: '24', title: 'Mad Max: Fury Road', description: 'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners and a drifter named Max.' },
+  { id: '25', title: 'Spider-Man: Into the Spider-Verse', description: 'Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.' },
+  { id: '26', title: 'The Grand Budapest Hotel', description: 'A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy in the hotel\'s glorious years.' },
+  { id: '27', title: 'Parasite', description: 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.' },
+  { id: '28', title: 'Coco', description: 'Aspiring musician Miguel, confronted with his family\'s ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.' },
+  { id: '29', title: 'Arrival', description: 'A linguist works with the military to communicate with alien lifeforms after twelve mysterious spacecraft appear around the world.' },
+  { id: '30', title: 'The Martian', description: 'An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.' }
 ];
 
 async function initializeApp() {

@@ -33,7 +33,20 @@
 
             <div class="loading-state" id="loadingState">
                 <div class="spinner"></div>
-                <span>Embedding your query & searching Endee DB...</span>
+                <span id="loadingSpan">Embedding your query & searching Endee DB...</span>
+            </div>
+            
+            <div class="add-data-section">
+                <h3>Add New Knowledge (Live Embedding)</h3>
+                <div class="add-container">
+                    <input type="text" id="addTitle" placeholder="Movie Title (ex. Avatar)">
+                    <input type="text" id="addDesc" placeholder="Description (ex. A marine goes to an alien planet...)">
+                    <button id="addButton" class="btn secondary">
+                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        Upload to Endee
+                    </button>
+                </div>
+                <p id="addSuccessMsg" class="success-msg" style="display: none;">Successfully embedded and saved to DB!</p>
             </div>
 
             <div class="results-container" id="resultsContainer">
