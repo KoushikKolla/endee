@@ -4,6 +4,9 @@ This project is an AI/ML application demonstrating **Semantic Search** using the
 
 This repository was built as an assignment submission for **Tap Academy / Endee.io**.
 
+## 🎥 Video Preview
+[Watch the Live Demo Project Video Here](https://drive.google.com/file/d/1KQrThaqN2JJ9w4nJJIUa_xKhecwLPXBW/view?usp=drive_link)
+
 ## Project Overview
 
 Traditional keyword-search relies on exact word matches (e.g. searching "space adventure" will only yield documents with those exact words). **Semantic Search**, on the other hand, understands the *context* and *meaning* of the words.
