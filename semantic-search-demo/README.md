@@ -29,7 +29,7 @@ The application follows a lightweight client-server architecture:
 ```mermaid
 graph LR
 A[Client UI] -- Search Query --> B(Express Backend)
-B -- 1. Text to Vector --> C[@xenova/transformers]
+B -- 1. Text to Vector --> C["@xenova/transformers"]
 B -- 2. K-NN Similarity Search --> D[Endee Vector DB]
 D -- Results --> B
 B -- Semantic Matches --> A
