@@ -16,7 +16,7 @@ app.use(express.json());
 const client = new Endee();
 client.setBaseUrl('http://127.0.0.1:8080/api/v1'); // Default local Endee server docker port
 
-const INDEX_NAME = 'movie_database_v2';
+const INDEX_NAME = 'movie_semantic_search';
 const DIMENSION = 384;
 
 let index = null;
